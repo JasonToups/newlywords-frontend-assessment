@@ -1,23 +1,18 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
+import modalGraphic from './ModalGraphic.svg';
+import Modal from './Modal/Modal';
+
+import ButtonOpenModal from './Button/ButtonOpenModal';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+    <div className='App'>
+      <header className='App-header'>
+        <img src={modalGraphic} className='App-logo' alt='logo' />
+        <Modal />
+        <ButtonOpenModal text='Open Modal' />
       </header>
     </div>
   );
