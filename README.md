@@ -135,7 +135,7 @@ The build will run on [http://localhost:5000](http://localhost:5000)
 
 # Contact
 
-You can find me on [LinkedIn](https://www.linkedin.com/in/jasontoups/).
+Connect with me on [LinkedIn](https://www.linkedin.com/in/jasontoups/).
 
 Take a look at my [portfolio](https://jasontoups.github.io/) to see some examples of my work.
 
