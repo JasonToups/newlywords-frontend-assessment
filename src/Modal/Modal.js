@@ -5,7 +5,7 @@ import modalClose from './ModalClose.svg';
 import modalDotGroup from './ModalDotGroup.svg';
 import Button from '../Button/Button';
 
-const Modal = ({ onClick }) => {
+const Modal = ({ header, body, button, onClick }) => {
   return (
     <div className='modal'>
       <img
@@ -15,14 +15,13 @@ const Modal = ({ onClick }) => {
         onClick={onClick}
       />
       <img src={modalGraphic} className='modal-graphic' alt='logo' />
-      <h1>Let's get going!</h1>
-      <p>
-        Follow these tips to get your project off to a great start and create a
-        fully memorable book!
-      </p>
+      <h1>{header}</h1>
+      <p>{body}</p>
       <img src={modalDotGroup} className='modal-dot-group' alt='dots' />
       <br />
-      <Button text='Next' />
+      <div className='modal-button'>
+        <Button text={button} />
+      </div>
     </div>
   );
 };

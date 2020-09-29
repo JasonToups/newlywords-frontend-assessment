@@ -1,5 +1,4 @@
 import React, { useEffect, useState, useRef } from 'react';
-import logo from './logo.svg';
 import './App.css';
 import Modal from './Modal/Modal';
 
@@ -32,7 +31,13 @@ function App() {
 
       {show ? (
         <div className='modal-background'>
-          <Modal onClick={() => setShow(!show)} />
+          <Modal
+            header="Let's get going!"
+            body='Follow these tips to get your project off to a great start and create a
+        fully memorable book!'
+            button='Next'
+            onClick={() => setShow(!show)}
+          />
         </div>
       ) : null}
     </div>
