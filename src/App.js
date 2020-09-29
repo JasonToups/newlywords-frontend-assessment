@@ -26,9 +26,15 @@ function App() {
 
   return (
     <div className='App' ref={outside}>
-      <Button text='Open Modal' onClick={() => setShow(!show)} />
+      <div className='open-modal'>
+        <Button text='Open Modal' onClick={() => setShow(!show)} />
+      </div>
 
-      {show ? <Modal onClick={() => setShow(!show)} /> : null}
+      {show ? (
+        <div className='modal-background'>
+          <Modal onClick={() => setShow(!show)} />
+        </div>
+      ) : null}
     </div>
   );
 }

@@ -1,0 +1,15 @@
+.open-modal {
+  position: absolute;
+  width: 480px;
+  height: 529px;
+  left: 483px;
+  right: 477px;
+  top: 420px;
+  text-align: center;
+}
+
+.modal-background {
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.7);
+}
