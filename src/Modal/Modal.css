@@ -1,0 +1,28 @@
+.modal {
+  position: absolute;
+  width: 480px;
+  height: 529px;
+  left: 483px;
+  right: 477px;
+  top: calc(50% - 529px / 2 - 39.5px);
+  text-align: center;
+
+  /* White */
+
+  background: #ffffff;
+  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.85);
+  border-radius: 10px;
+}
+
+.modal h1 {
+  font-weight: 400;
+  font-size: 37px;
+  line-height: 40.7px;
+  font-family: 'Sorts Mill Goudy', serif;
+}
+
+.modal p {
+  font-family: 'Assistant', sans-serif;
+  padding: 0 124px;
+  text-align: center;
+}
