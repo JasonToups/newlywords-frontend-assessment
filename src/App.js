@@ -1,8 +1,8 @@
 import React, { useEffect, useState, useRef } from 'react';
 import './App.css';
 import Modal from './Modal/Modal';
-
 import Button from './Button/Button';
+import modalGraphic from './Modal/ModalGraphic.svg';
 
 function App() {
   const outside = useRef();
@@ -32,11 +32,11 @@ function App() {
       {show ? (
         <div className='modal-background'>
           <Modal
+            modalGraphic={modalGraphic}
             header="Let's get going!"
-            body='Follow these tips to get your project off to a great start and create a
-        fully memorable book!'
-            button='Next'
-            onClick={() => setShow(!show)}
+            body='Follow these tips to get your project off to a great start and create a fully memorable book! The quick brown fox jumped over the lazy brown dog.'
+            buttonText='Next'
+            close={() => setShow(!show)}
           />
         </div>
       ) : null}

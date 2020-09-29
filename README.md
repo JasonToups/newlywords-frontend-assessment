@@ -1,68 +1,132 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Jason Toups FrontEnd Assessment for Newlywords
 
-## Available Scripts
+The exercise called for creating a button and opening a modal.
 
-In the project directory, you can run:
+Here is the [Figma Mockup](https://www.figma.com/file/FEz10wy2GzzAsTJ7aVfvgZ/Newlywords-Modal-Mockup) that was provided.
 
-### `yarn start`
+## UX
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+The user clicks the **Open Modal** button, then a _Modal_ appears.
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+When the user clicks the **close** button, the Modal should _disappear_.
 
-### `yarn test`
+Also, if the user clicks outside of the Modal, the Modal should disappear. The prototype did not include this interaction, but it follows modal best practices, so I included this.
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Here is the [Figma Prototype](https://www.figma.com/proto/FEz10wy2GzzAsTJ7aVfvgZ/Newlywords-Modal-Mockup?scaling=min-zoom&node-id=1%3A134)
 
-### `yarn build`
+## Button
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+![button screenshot](./public/screenshot-button.png)
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+Since I used React for the exercise, I decided to use a _reusable_ **Button** component to open the Modal, and for the Next button on the modal.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+```javascript
+const Button = ({ text, onClick }) => {
+  return (
+    <button className='button' onClick={onClick}>
+      {text}
+    </button>
+  );
+};
+```
 
-### `yarn eject`
+I passed props into the Button for the text displayed inside the button.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+I'm also passing an onClick prop, so the button can be reused for different events. When using the Button component, pass an onClick function into the prop, and the Button will call that function when it has been clicked.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+```javascript
+<Button text='Open Modal' onClick={() => setShow(!show)} />
+```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+To style the button, I used the google font [Assistant](https://fonts.google.com/specimen/Assistant) as showin in the mockup.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+Since I wanted this button to be reuseable, I set the min-width to the width of the button in the mockup.
 
-## Learn More
+This way the Button component would _accommodate any amount of text_ shown within.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+![button wide screenshot](./public/screenshot-button-wide.png)
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Modal
 
-### Code Splitting
+![modal](./public/screenshot-modal.png)
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
+I took the same reusable approach for the Modal componant as I did for the Button componant, by passing props into the component, this can be reused across the site.
 
-### Analyzing the Bundle Size
+```javascript
+const Modal = ({ modalGraphic, header, body, buttonText, close }) => {
+  return (
+    <div className='modal'>
+      <img
+        src={modalClose}
+        className='modal-close'
+        alt='close'
+        onClick={close}
+      />
+      <img src={modalGraphic} className='modal-graphic' alt='logo' />
+      <h1>{header}</h1>
+      <p>{body}</p>
+      <img src={modalDotGroup} className='modal-dot-group' alt='dots' />
+      <br />
+      <div className='modal-button'>
+        <Button text={buttonText} />
+      </div>
+    </div>
+  );
+};
+```
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
+Since the only interaction needed for this modal is to close it, I included a _close_ prop that can be used to close the modal.
 
-### Making a Progressive Web App
+I _did not include_ a Button onClick parameter, since the prototype did not call for it. But something I would add to the Modal, would be to either pass a child Button component into it, or to pass an onClick parameter into the Modal.
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
+In the App.js file, here's the show ternary operator that shows the Modal if show in state is set to true.
 
-### Advanced Configuration
+```javascript
+{
+  show ? (
+    <div className='modal-background'>
+      <Modal
+        modalGraphic={modalGraphic}
+        header="Let's get going!"
+        body='Follow these tips to get your project off to a great start and create a
+        fully memorable book!'
+        buttonText='Next'
+        close={() => setShow(!show)}
+      />
+    </div>
+  ) : null;
+}
+```
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
+When styling the Modal, I used min-height, so that if the text in the body exceeds the three lines shown in the mockup, the modal will grow vertically to accommodate the text.
 
-### Deployment
+![modal large](./public/screenshot-modal-large.png)
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
+I _exported the graphics_ from the mockup as **.svg**, and included them in the project for the **close** icon, the modal **graphic** and the modal **dots**.
 
-### `yarn build` fails to minify
+---
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+## Running the Project
+
+I used Create React App, so just clone the repo, and run:
+
+```
+npm start
+```
+
+The project will run on [http://localhost:3000/](http://localhost:3000/)
+
+To create a build:
+
+```
+yarn build
+```
+
+To run the build from the build folder:
+
+```
+yarn global add serve
+serve -s build
+```
+
+The build will run on [http://localhost:5000](http://localhost:5000)

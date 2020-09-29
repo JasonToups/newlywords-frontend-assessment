@@ -1,18 +1,17 @@
 import React from 'react';
 import './Modal.css';
-import modalGraphic from './ModalGraphic.svg';
 import modalClose from './ModalClose.svg';
 import modalDotGroup from './ModalDotGroup.svg';
 import Button from '../Button/Button';
 
-const Modal = ({ header, body, button, onClick }) => {
+const Modal = ({ modalGraphic, header, body, buttonText, close }) => {
   return (
     <div className='modal'>
       <img
         src={modalClose}
         className='modal-close'
         alt='close'
-        onClick={onClick}
+        onClick={close}
       />
       <img src={modalGraphic} className='modal-graphic' alt='logo' />
       <h1>{header}</h1>
@@ -20,7 +19,7 @@ const Modal = ({ header, body, button, onClick }) => {
       <img src={modalDotGroup} className='modal-dot-group' alt='dots' />
       <br />
       <div className='modal-button'>
-        <Button text={button} />
+        <Button text={buttonText} />
       </div>
     </div>
   );
