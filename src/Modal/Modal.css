@@ -15,14 +15,32 @@
 }
 
 .modal h1 {
+  font-family: 'Sorts Mill Goudy', serif;
   font-weight: 400;
   font-size: 37px;
   line-height: 40.7px;
-  font-family: 'Sorts Mill Goudy', serif;
 }
 
 .modal p {
   font-family: 'Assistant', sans-serif;
+  font-weight: 400px;
+  font-size: 18px;
   padding: 0 124px;
   text-align: center;
+}
+
+.modal-close {
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  left: calc(50% - 12px / 2 + 207px);
+  top: 30px;
+}
+
+.modal-graphic {
+  margin-top: 60px;
+}
+
+.modal-dot-group {
+  margin: 15px;
 }

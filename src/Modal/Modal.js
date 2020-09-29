@@ -2,6 +2,8 @@ import React from 'react';
 import './Modal.css';
 import modalGraphic from './ModalGraphic.svg';
 import modalClose from './ModalClose.svg';
+import modalDotGroup from './ModalDotGroup.svg';
+import Button from '../Button/Button';
 
 const Modal = ({ onClick }) => {
   return (
@@ -18,8 +20,9 @@ const Modal = ({ onClick }) => {
         Follow these tips to get your project off to a great start and create a
         fully memorable book!
       </p>
-      <p>...</p>
-      <button>Next</button>
+      <img src={modalDotGroup} className='modal-dot-group' alt='dots' />
+      <br />
+      <Button text='Next' />
     </div>
   );
 };
