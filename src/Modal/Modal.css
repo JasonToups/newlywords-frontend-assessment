@@ -1,6 +1,6 @@
 .modal {
   position: absolute;
-  min-width: 480px;
+  width: 480px;
   min-height: 529px;
   left: 483px;
   right: 477px;
