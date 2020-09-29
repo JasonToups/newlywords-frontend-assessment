@@ -34,7 +34,7 @@ function App() {
           <Modal
             modalGraphic={modalGraphic}
             header="Let's get going!"
-            body='Follow these tips to get your project off to a great start and create a fully memorable book! The quick brown fox jumped over the lazy brown dog.'
+            body='Follow these tips to get your project off to a great start and create a fully memorable book!'
             buttonText='Next'
             close={() => setShow(!show)}
           />
