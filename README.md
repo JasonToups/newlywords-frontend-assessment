@@ -111,7 +111,7 @@ I _exported the graphics_ from the mockup as **.svg**, and included them in the 
 I used Create React App, so just clone the repo, and run:
 
 ```
-npm start
+yarn start
 ```
 
 The project will run on [http://localhost:3000/](http://localhost:3000/)
