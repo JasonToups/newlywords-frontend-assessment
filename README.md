@@ -1,4 +1,4 @@
-# Jason Toups FrontEnd Assessment for Newlywords
+# Jason Toups - FrontEnd Assessment for Newlywords
 
 The exercise called for creating a button and opening a modal.
 
@@ -130,3 +130,15 @@ serve -s build
 ```
 
 The build will run on [http://localhost:5000](http://localhost:5000)
+
+---
+
+# Contact
+
+You can find me on [LinkedIn](https://www.linkedin.com/in/jasontoups/).
+
+Take a look at my [portfolio](https://jasontoups.github.io/) to see some examples of my work.
+
+Checkout my [GitHub profile](https://github.com/JasonToups) to see what I've been working on recently.
+
+If you would like to see my work history, here is my [resume](https://docs.google.com/document/d/1koaqjOgaks8QpRmC1oR1Wt6XSJJ_Woj40uLOFUwXjzA/edit?usp=sharing).
