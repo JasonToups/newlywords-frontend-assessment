@@ -78,7 +78,7 @@ Since the only interaction needed for this modal is to close it, I included a _c
 
 > I _did not include_ a Button onClick parameter, since the prototype did not call for it. But something I would add to the Modal, would be to either pass a child Button component into it, or to pass an onClick parameter into the Modal.
 
-I wanted to add an interaction where the user clicks away from the Modal and the Modal closes, where I could have just added an `onClick` event handler to the `modal-background`, but I wanted experience working with `useRef` and passing a callback function into the component while using the _React Hook_ `useOnClickOutside`.
+I wanted to add an interaction where the user clicks away from the Modal and the Modal closes, where I could have just added an `onClick` event handler to the `modal-background`, but I wanted experience working with `useRef` and passing a callback function into the component while using the _React Hooks_ for `useClickOutside`.
 
 ```javascript
 //Modal Component Continued...
