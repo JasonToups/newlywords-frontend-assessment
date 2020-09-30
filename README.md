@@ -98,11 +98,33 @@ In the App.js file, here's the show ternary operator that shows the Modal if sho
 }
 ```
 
-When styling the Modal, I used min-height, so that if the text in the body exceeds the three lines shown in the mockup, the modal will grow vertically to accommodate the text.
+### Styling the Modal
+
+When styling the Modal, I used fixed positioning and transform to center it on any screen size:
+
+```css
+position: fixed;
+left: 50%;
+top: 50%;
+transform: translate(-50%, -50%);
+```
+
+I used `min-height: 529px`, so that if the text in the body exceeds the three lines shown in the mockup, the Modal will grow vertically to accommodate the text.
 
 ![modal large](./public/screenshot-modal-large.png)
 
-I _exported the graphics_ from the mockup as **.svg**, and included them in the project for the **close** icon, the modal **graphic** and the modal **dots**.
+If the screen is narrower than 480px, then the Modal will fill up 100% of the available screen space, which could account for Modals on mobile screen sizes.
+
+```css
+width: 480px;
+max-width: 100%;
+```
+
+![modal mobile](./public/screenshot-modal-mobile.png)
+
+## Graphics
+
+I _exported the graphics_ from the Figma mockup as **.svg**, and included them in the project for the **close** icon, the modal **graphic** and the modal **dots**.
 
 ---
 
