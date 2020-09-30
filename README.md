@@ -10,8 +10,6 @@ The user clicks the **Open Modal** button, then a _Modal_ appears.
 
 When the user clicks the **close** button, the Modal should _disappear_.
 
-Also, if the user clicks outside of the Modal, the Modal should disappear. The prototype did not include this interaction, but it follows modal best practices, so I included this.
-
 Here is the [Figma Prototype](https://www.figma.com/proto/FEz10wy2GzzAsTJ7aVfvgZ/Newlywords-Modal-Mockup?scaling=min-zoom&node-id=1%3A134)
 
 ## Button
@@ -35,7 +33,15 @@ I passed props into the Button for the text displayed inside the button.
 I'm also passing an onClick prop, so the button can be reused for different events. When using the Button component, pass an onClick function into the prop, and the Button will call that function when it has been clicked.
 
 ```javascript
-<Button text='Open Modal' onClick={() => setShow(!show)} />
+<Button text='Open Modal' onClick={handleClick} />
+```
+
+The handleClick function takes the value of show in state and sets the opposite to state.
+
+```javascript
+const handleClick = () => {
+  setShow(!show);
+};
 ```
 
 To style the button, I used the google font [Assistant](https://fonts.google.com/specimen/Assistant) as showin in the mockup.
