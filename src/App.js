@@ -18,15 +18,15 @@ function App() {
       </div>
 
       {show ? (
-        <div className='modal-background'>
+        
           <Modal
             modalGraphic={modalGraphic}
             header="Let's get going!"
             body='Follow these tips to get your project off to a great start and create a fully memorable book!'
             buttonText='Next'
             close={handleClick}
+            onClickOutside={handleClick}
           />
-        </div>
       ) : null}
     </div>
   );
