@@ -36,7 +36,7 @@ I'm also passing an onClick prop, so the button can be reused for different even
 <Button text='Open Modal' onClick={handleClick} />
 ```
 
-The handleClick function takes the value of show in state and sets the opposite to state.
+The handleClick function takes the value of show in state and sets the opposite true/false value to state.
 
 ```javascript
 const handleClick = () => {
