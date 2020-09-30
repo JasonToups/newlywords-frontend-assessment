@@ -6,9 +6,10 @@ Here is the [Figma Mockup](https://www.figma.com/file/FEz10wy2GzzAsTJ7aVfvgZ/New
 
 ## UX
 
-The user clicks the **Open Modal** button, then a _Modal_ appears.
-
-When the user clicks the **close** button, the Modal should _disappear_.
+- The user clicks the **Open Modal** button, then a _Modal_ appears.
+- When the user clicks the **close** button, the Modal should _disappear_.
+- If the user clicks outside of the Modal, the Modal should disappear.
+  - The prototype did not include this interaction, but it follows modal best practices, so I included this.
 
 Here is the [Figma Prototype](https://www.figma.com/proto/FEz10wy2GzzAsTJ7aVfvgZ/Newlywords-Modal-Mockup?scaling=min-zoom&node-id=1%3A134)
 
@@ -36,7 +37,7 @@ I'm also passing an onClick prop, so the button can be reused for different even
 <Button text='Open Modal' onClick={handleClick} />
 ```
 
-The handleClick function takes the value of show in state and sets the opposite true/false value to state.
+The handleClick function takes the value of show in state and sets the opposite `true/false` value to state.
 
 ```javascript
 const handleClick = () => {
@@ -58,36 +59,77 @@ This way the Button component would _accommodate any amount of text_ shown withi
 
 ![modal](./public/screenshot-modal.png)
 
+### Building the Modal
+
 I took the same reusable approach for the Modal componant as I did for the Button componant, by passing props into the component, this can be reused across the site.
 
 ```javascript
-const Modal = ({ modalGraphic, header, body, buttonText, close }) => {
-  return (
-    <div className='modal'>
-      <img
-        src={modalClose}
-        className='modal-close'
-        alt='close'
-        onClick={close}
-      />
-      <img src={modalGraphic} className='modal-graphic' alt='logo' />
-      <h1>{header}</h1>
-      <p>{body}</p>
-      <img src={modalDotGroup} className='modal-dot-group' alt='dots' />
-      <br />
-      <div className='modal-button'>
-        <Button text={buttonText} />
-      </div>
-    </div>
-  );
-};
+const Modal = ({
+  modalGraphic,
+  header,
+  body,
+  buttonText,
+  close,
+  onClickOutside,
+}) => {
 ```
 
 Since the only interaction needed for this modal is to close it, I included a _close_ prop that can be used to close the modal.
 
 > I _did not include_ a Button onClick parameter, since the prototype did not call for it. But something I would add to the Modal, would be to either pass a child Button component into it, or to pass an onClick parameter into the Modal.
 
-In the App.js file, here's the show ternary operator that shows the Modal if show in state is set to true.
+I wanted to add an interaction where the user clicks away from the Modal and the Modal closes, where I could have just added an `onClick` event handler to the `modal-background`, but I wanted experience working with `useRef` and passing a callback function into the component while using the _React Hook_ `useOnClickOutside`.
+
+```javascript
+//Modal Component Continued...
+const useClickOutside = (ref, callback) => {
+  const handleClick = e => {
+    if (ref.current && !ref.current.contains(e.target)) {
+      callback();
+    }
+  };
+  useEffect(() => {
+    document.addEventListener('click', handleClick);
+    return () => {
+      document.removeEventListener('click', handleClick);
+    };
+  });
+};
+const clickRef = useRef();
+useClickOutside(clickRef, onClickOutside);
+```
+
+I placed the `ref` on the `modal` div, so that if the user clicks _outside of the modal_, the user will be clicking on the parent modal-background div that stretches to the entirety of the screen width and height.
+
+```javascript
+//Modal Component Continued...
+return (
+    <div className='modal-background'>
+      <div className='modal' ref={clickRef}>
+        <img
+          src={modalClose}
+          className='modal-close'
+          alt='close'
+          onClick={close}
+        />
+        <img src={modalGraphic} className='modal-graphic' alt='logo' />
+        <h1>{header}</h1>
+        <p>{body}</p>
+        <img src={modalDotGroup} className='modal-dot-group' alt='dots' />
+        <br />
+        <div className='modal-button'>
+          <Button text={buttonText} />
+        </div>
+      </div>
+    </div>
+  );
+};
+
+```
+
+### Using the Modal
+
+In the `App.js` file, here's the show _ternary operator_ that shows the Modal if show in state is set to `true`.
 
 ```javascript
 {
