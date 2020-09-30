@@ -24,8 +24,8 @@ function App() {
   }, []);
 
   return (
-    <div className='App' ref={outside}>
-      <div className='open-modal'>
+    <div className='App'>
+      <div className='open-modal' ref={outside}>
         <Button text='Open Modal' onClick={() => setShow(!show)} />
       </div>
 
