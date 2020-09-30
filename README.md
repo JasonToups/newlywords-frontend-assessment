@@ -96,10 +96,9 @@ In the App.js file, here's the show ternary operator that shows the Modal if sho
       <Modal
         modalGraphic={modalGraphic}
         header="Let's get going!"
-        body='Follow these tips to get your project off to a great start and create a
-        fully memorable book!'
+        body='Follow these tips to get your project off to a great start and create a fully memorable book!'
         buttonText='Next'
-        close={() => setShow(!show)}
+        close={handleClick}
       />
     </div>
   ) : null;
