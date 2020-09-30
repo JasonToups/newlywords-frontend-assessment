@@ -40,6 +40,8 @@ I'm also passing an onClick prop, so the button can be reused for different even
 
 To style the button, I used the google font [Assistant](https://fonts.google.com/specimen/Assistant) as showin in the mockup.
 
+> I would like to mention that the screenshots for the Button has a default button border style, which is not included in the final project. Since I updated the styling of the button to include `border-style: none` after I took the screenshots.
+
 Since I wanted this button to be reuseable, I set the min-width to the width of the button in the mockup.
 
 This way the Button component would _accommodate any amount of text_ shown within.
@@ -77,7 +79,7 @@ const Modal = ({ modalGraphic, header, body, buttonText, close }) => {
 
 Since the only interaction needed for this modal is to close it, I included a _close_ prop that can be used to close the modal.
 
-I _did not include_ a Button onClick parameter, since the prototype did not call for it. But something I would add to the Modal, would be to either pass a child Button component into it, or to pass an onClick parameter into the Modal.
+> I _did not include_ a Button onClick parameter, since the prototype did not call for it. But something I would add to the Modal, would be to either pass a child Button component into it, or to pass an onClick parameter into the Modal.
 
 In the App.js file, here's the show ternary operator that shows the Modal if show in state is set to true.
 
